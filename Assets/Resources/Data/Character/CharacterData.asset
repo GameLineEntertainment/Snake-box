@@ -20,4 +20,55 @@ MonoBehaviour:
   Damage: 1
   SlowBlockSpeed: 1.5
   RamCooldown: 0.1
-  AngularSpeed: 10
+  AngularSpeed: 2.5
+  Curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.1678274
+      value: 0.35727823
+      inSlope: 1.4895583
+      outSlope: 1.4895583
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.48686934
+      value: 0.5091503
+      inSlope: 0.04650215
+      outSlope: 0.04650215
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.46407416
+    - serializedVersion: 3
+      time: 0.8306098
+      value: 0.7019776
+      inSlope: 1.4222661
+      outSlope: 1.4222661
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
