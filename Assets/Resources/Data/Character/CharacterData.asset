@@ -16,11 +16,12 @@ MonoBehaviour:
   Armor: 100
   RegenerationArmor: 1
   SpeedRotation: 8.43
-  Speed: 11
+  Speed: 3
   Damage: 1
   SlowBlockSpeed: 1.5
   RamCooldown: 0.1
   AngularSpeed: 2.5
+  Fuel: 100
   Curve:
     serializedVersion: 2
     m_Curve:

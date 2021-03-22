@@ -14,7 +14,6 @@ namespace Snake_box
         [SerializeField] private float _radius;
 
         private CharacterData _characterData;
-
         //private readonly List<BlockSnake> _blocksSnakes = new List<BlockSnake>();//блоки
         //private readonly List<Vector3> _positions = new List<Vector3>();// позиции блоков 
         //private float _sizeBlock;       
@@ -26,8 +25,10 @@ namespace Snake_box
         private float _slowSnake;
         private float _ramCooldown;
         private float _currentRamCooldown = 0;
+        private float _fuelLessSpeed;
         private Queue<GameObject> _pointsTurret;
         private Vector3 _priveusPos;
+       
 
         #endregion
 
@@ -43,6 +44,7 @@ namespace Snake_box
         {
             _player = GameObject.FindGameObjectWithTag(TagManager.GetTag(TagType.Player));
             _timeService = Services.Instance.TimeService;
+            _fuel = new Fuel();
             //_sizeBlock = (gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.size.sqrMagnitude);// размер
             _characterData = Data.Instance.Character;
             //_positions.Add(gameObject.transform.position);//позиция головы
@@ -55,8 +57,10 @@ namespace Snake_box
             _angularSpeed = _characterData.AngularSpeed;
             _snakeArmorGeneration = _characterData.RegenerationArmor;
             _ramCooldown = _characterData.RamCooldown;
+            _fuel.FuelCount = _characterData.Fuel;
             _pointsTurret = new Queue<GameObject>();
             _animation = _characterData.Curve;
+            _fuelLessSpeed = _characterData.FuelLessSpeed;
             var pointTurrets = GameObject.FindGameObjectsWithTag(TagManager.GetTag(TagType.TurretPoint));
             if (pointTurrets.Length != 0)
             {
@@ -154,10 +158,16 @@ namespace Snake_box
 
         public void ConstantMove() //постоянное движение
         {
+            if (_fuel.FuelCount>0)
+            {
+                _fuel.UseFuel(_fuelLessSpeed* _timeService.DeltaTime());
+               
+            }
             transform.rotation = Quaternion.Lerp(transform.rotation, _direction.ToQuaternion(),
                 _timeService.DeltaTime() * _angularSpeed);
+            Debug.Log(_fuel.FuelCount);
             transform.position += transform.forward *
-                                  ((_speed /*- (_positions.Count * _slowSnake)*/) * _timeService.DeltaTime());
+                                  ((_speed + _fuel.FuelCount) * _timeService.DeltaTime());
         }
 
         public void InputMove(Direction direction) //движение

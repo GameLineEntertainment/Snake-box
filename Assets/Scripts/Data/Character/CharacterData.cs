@@ -11,10 +11,12 @@ namespace Snake_box
         public float RegenerationArmor; //регенирация силового поля 
         public float SpeedRotation;// скорость поворота
         public float Speed;// скорость 
-        public float Damage;
+        public float Damage;//урон
         public float SlowBlockSpeed;
         public float RamCooldown;
-        public float AngularSpeed;
-        public AnimationCurve Curve;
+        public float AngularSpeed;//скорость поворота
+        public float Fuel;//топливо
+        public float FuelLessSpeed;//скорость расхода
+        public AnimationCurve Curve;//кривая скорости поворота
     }
 }

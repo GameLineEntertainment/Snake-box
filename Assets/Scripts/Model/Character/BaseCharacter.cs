@@ -16,11 +16,13 @@ namespace Snake_box
         protected float _currentSnakeHp;//Текущее кол-во Здоровья
         protected float _damage;//урон
         protected float _speed;//скорость
-        protected float _angularSpeed;
+        protected float _angularSpeed;        
+        protected Fuel _fuel;
         private Direction _direction = Direction.Up;
         protected AnimationCurve _animation;
         public GameObject ParticleOnDie;
         public Image hpbar;
+
 
         #endregion
 
